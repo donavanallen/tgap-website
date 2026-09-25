@@ -94,6 +94,36 @@ const marqueeItems = [
   "Short Term Rentals", "Subdivisions", "Long Term Rentals", "Mixed Use",
 ];
 
+/* ===== TEAM CARD (collapsible bio on mobile) ===== */
+function TeamCard({ member }: { member: (typeof teamMembers)[number] }) {
+  const [expanded, setExpanded] = useState(false);
+  const longBio = member.bio.length > 220;
+  return (
+    <div className={`team-card ${expanded ? "expanded" : ""}`}>
+      <div className="team-photo">
+        {member.image ? (
+          <img src={member.image} alt={member.name} className="team-photo-img" loading="lazy" />
+        ) : (
+          <div className="team-photo-initials">{member.initials}</div>
+        )}
+      </div>
+      <div className="team-info">
+        <div className="team-name">{member.name}</div>
+        {member.bio && (
+          <>
+            <div className={`team-bio ${longBio && !expanded ? "clamped" : ""}`}>{member.bio}</div>
+            {longBio && (
+              <button type="button" className="team-bio-toggle" onClick={() => setExpanded((v) => !v)} aria-expanded={expanded}>
+                {expanded ? "Show less" : "Read more"}
+              </button>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /* ===== MAIN PAGE COMPONENT ===== */
 export default function Home() {
   const [preloaderHidden, setPreloaderHidden] = useState(false);
@@ -466,19 +496,7 @@ export default function Home() {
           </div>
           <div className="team-grid reveal">
             {teamMembers.map((member) => (
-              <div className="team-card" key={member.initials}>
-                <div className="team-photo">
-                  {member.image ? (
-                    <img src={member.image} alt={member.name} className="team-photo-img" />
-                  ) : (
-                    <div className="team-photo-initials">{member.initials}</div>
-                  )}
-                </div>
-                <div className="team-info">
-                  <div className="team-name">{member.name}</div>
-                  <div className="team-bio">{member.bio}</div>
-                </div>
-              </div>
+              <TeamCard key={member.initials} member={member} />
             ))}
           </div>
         </div>

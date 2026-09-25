@@ -1161,3 +1161,135 @@ body {
 .legal-page h2 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--text-primary); margin: 2.5rem 0 0.75rem; }
 .legal-page p { margin-bottom: 1rem; }
 .legal-page a { color: var(--gold); }
+
+/* =========================================================
+   MOBILE PASS (<= 768px). Written last so it wins the cascade.
+   ========================================================= */
+@media (max-width: 768px) {
+  html { -webkit-text-size-adjust: 100%; }
+
+  /* Nav */
+  .nav { padding: 0.9rem 0; }
+  .nav.scrolled { padding: 0.7rem 0; }
+  .nav-inner { padding: 0 1.25rem; }
+  .nav-logo { font-size: 1.3rem; letter-spacing: 0.2em; }
+  .nav-logo span { font-size: 0.48rem; letter-spacing: 0.12em; }
+  .nav-links { width: min(320px, 85vw); gap: 1.75rem; padding: 2rem 2rem; }
+  .nav-links a { font-size: 0.95rem; }
+  .nav-links .nav-cta { display: inline-block; margin-top: 0.5rem; }
+
+  /* Hero */
+  .hero { min-height: 0; padding: 6.5rem 0 3.5rem; }
+  .hero-content { padding: 0 1.25rem; gap: 2.5rem; }
+  .hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.22em; margin-bottom: 1.25rem; gap: 0.6rem; }
+  .hero-eyebrow::before { width: 24px; flex-shrink: 0; }
+  .hero-title { font-size: clamp(2.1rem, 9.5vw, 2.9rem); line-height: 1.12; margin-bottom: 1.25rem; }
+  .hero-description { font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.75rem; }
+  .hero-buttons { flex-direction: column; gap: 0.75rem; }
+  .hero-buttons .btn-primary, .hero-buttons .btn-outline { width: 100%; justify-content: center; padding: 0.95rem 1.5rem; }
+  .hero-right { margin-top: 0; }
+  .hero-stats { max-width: 100%; }
+  .hero-stat { padding: 1.25rem 0.75rem; }
+  .hero-stat-number { font-size: 1.5rem; margin-bottom: 0.35rem; }
+  .hero-stat-label { font-size: 0.58rem; letter-spacing: 0.1em; }
+  .hero-scroll { display: none; }
+
+  /* Marquee */
+  .marquee-item { font-size: 0.65rem; }
+
+  /* Section rhythm */
+  .about, .services, .portfolio, .investors, .team, .contact { padding: 4rem 0; }
+  .services > div, .portfolio > div, .team > div, .contact > div, .investors-content, .footer > div { padding: 0 1.25rem !important; }
+  .section-label { font-size: 0.62rem; letter-spacing: 0.22em; margin-bottom: 1rem; gap: 0.6rem; }
+  .section-label::before { width: 24px; flex-shrink: 0; }
+  .section-title { font-size: clamp(1.75rem, 7.5vw, 2.3rem); margin-bottom: 1rem; }
+  .section-subtitle { font-size: 0.95rem; line-height: 1.7; }
+
+  /* About */
+  .about-grid { padding: 0 1.25rem; gap: 2rem; }
+  .about-image-wrapper { display: none; }
+  .about-text p { font-size: 0.95rem; line-height: 1.75; }
+  .about-values { gap: 1.25rem; }
+  .about-value-title { font-size: 0.9rem; }
+
+  /* Services */
+  .services-header { margin-bottom: 2rem; }
+  .services-grid { margin-top: 0; }
+  .service-card { padding: 1.75rem 1.5rem; }
+  .service-number { font-size: 0.7rem; }
+  .service-icon { width: 32px; height: 32px; margin-bottom: 1rem; }
+  .service-card h3 { font-size: 1.1rem; margin-bottom: 0.6rem; }
+  .service-card p { font-size: 0.85rem; line-height: 1.65; }
+
+  /* Portfolio: text cards, no clipped overlays */
+  .portfolio-grid { gap: 1rem; margin-top: 2rem; }
+  .portfolio-card,
+  .portfolio-card:first-child { aspect-ratio: auto; grid-column: span 1; grid-row: span 1; border-left: 2px solid var(--gold); }
+  .portfolio-overlay { display: none; }
+  .portfolio-content { position: static; padding: 1.35rem 1.25rem; }
+  .portfolio-name, .portfolio-card:first-child .portfolio-name { font-size: 1.15rem; line-height: 1.3; }
+  .portfolio-location { font-size: 0.78rem; line-height: 1.5; }
+  .portfolio-arrow { display: none; }
+
+  /* Investors */
+  .investors-top { gap: 2rem; }
+  .investor-stats-grid { gap: 1px; }
+  .investor-stat { padding: 1.25rem 0.75rem; }
+  .investor-stat-number { font-size: 1.3rem; }
+  .investor-stat-label { font-size: 0.58rem; }
+  .investors-features { gap: 1rem; margin-top: 2.5rem; }
+  .investor-feature { padding: 1.5rem; }
+  .investor-feature h4 { font-size: 1.05rem; }
+  .investor-feature p { font-size: 0.85rem; }
+  .investor-disclaimer { margin-top: 2rem; font-size: 0.68rem; }
+
+  /* Team */
+  .team-grid { grid-template-columns: 1fr; max-width: 100%; gap: 1.25rem; margin-top: 2rem; }
+  .team-card { display: grid; grid-template-columns: 110px 1fr; align-items: start; }
+  .team-photo { aspect-ratio: 3/4; }
+  .team-info { padding: 1rem 1.1rem; }
+  .team-name { font-size: 1.05rem; margin-bottom: 0.4rem; }
+  .team-bio { font-size: 0.8rem; line-height: 1.6; }
+  .team-bio.clamped { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+  .team-bio-toggle { margin-top: 0.4rem; background: none; border: none; padding: 0; color: var(--gold); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: 'Inter', sans-serif; }
+  .team-card.expanded { grid-template-columns: 1fr; }
+  .team-card.expanded .team-photo { aspect-ratio: 1/1; max-height: 260px; }
+
+  /* Contact */
+  .contact-grid { gap: 2.5rem; margin-top: 2rem; }
+  .contact-info-item { margin-bottom: 1.5rem; }
+  .contact-form { gap: 1rem; }
+  .form-group input, .form-group textarea, .form-group select { font-size: 16px; padding: 0.85rem 1rem; }
+  .contact-form .btn-primary { width: 100%; justify-content: center; }
+
+  /* Footer */
+  .footer { padding: 3rem 0 1.5rem; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
+  .footer-top > div:first-child { grid-column: span 2; }
+  .footer-brand-desc { font-size: 0.85rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+  .footer-legal { justify-content: center; }
+
+  /* Calculators */
+  .calc-nav-inner { padding: 0 1.25rem; height: 60px; }
+  .calc-nav-logo-text { font-size: 1.2rem; }
+  .calc-nav-back { font-size: 0.78rem; }
+  .calc-hero { padding: 6.5rem 1.25rem 2.5rem; }
+  .calc-hero-title { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .calc-hero-subtitle { font-size: 0.95rem; }
+  .calc-quick-nav { top: 60px; }
+  .calc-quick-nav-inner { padding: 0.6rem 1.25rem; }
+  .calc-main { padding: 1.5rem 1.25rem 3rem; }
+  .calc-grid { gap: 1.25rem; }
+  .calc-card { padding: 1.5rem 1.25rem; scroll-margin-top: 130px; }
+  .calc-input { font-size: 16px; }
+  .calc-cta { padding: 4rem 1.25rem; }
+  .legal-page { padding: 6.5rem 1.25rem 4rem; }
+  .legal-page h1 { font-size: 1.9rem; }
+}
+
+@media (max-width: 380px) {
+  .hero-title { font-size: 2rem; }
+  .team-card { grid-template-columns: 96px 1fr; }
+}
+@media (min-width: 769px) { .team-bio-toggle { display: none; } }
