@@ -258,7 +258,7 @@ export default function Home() {
         <div className="hero-grid-overlay" />
         <div className="hero-content">
           <div className="hero-left">
-            <div className="hero-eyebrow">Richfield, Utah &middot; Utah &amp; Surrounding States</div>
+            <div className="hero-eyebrow">Richfield, Utah &middot; Intermountain West</div>
             <h1 className="hero-title">
               We Don&apos;t Just Find <em>Opportunity.</em> We Create It.
             </h1>
